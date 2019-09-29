@@ -55,9 +55,12 @@ function page_load() {
   chrome.storage.local.get(null, function(result) {
     width = window.innerWidth;
     height = window.innerHeight;
-    console.log(result)
 
-    if( result.width != width || result.height != height){
+    if(result.page === undefined) {
+      chrome.storage.local.set({page: 1});
+      get_images();
+    }
+    else if( result.width != width || result.height != height){
       get_images();
     }
     else if (result.index < result.total) {
