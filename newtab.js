@@ -2,13 +2,13 @@ function get_images() {
   width = window.innerWidth;
   height = window.innerHeight;
   apiKey = "13779592-974f51385386ce7d8ca9c6c5d";
-  searchParams = "space+wallpaper"
   perPage = 10;
   var page;
   saved = {};
 
-  chrome.storage.local.get("page", function(result) {
+  chrome.storage.local.get(null, function(result) {
     page = result.page;
+    searchParams = result.searchParams
 
     $.ajax({
       url: `https://pixabay.com/api/?key=${apiKey}&q=${searchParams}&min_width=${width}&min_height=${height}&per_page=${perPage}&page=${page}`,
@@ -56,6 +56,9 @@ function page_load() {
     width = window.innerWidth;
     height = window.innerHeight;
 
+    if(result.searchParams === undefined) {
+      chrome.storage.local.set({searchParams: ""});
+    }
     if(result.page === undefined) {
       chrome.storage.local.set({page: 1});
       get_images();
