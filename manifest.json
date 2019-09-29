@@ -2,13 +2,19 @@
   "name": "Dynamic Chrome Themes",
   "version": "1.0",
   "description": "Dynamic Chrome themes",
-  "permissions": ["activeTab","declarativeContent", "storage"],
+  "permissions": ["activeTab","declarativeContent", "storage", "tabs", "webNavigation", "<all_urls>"],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["jquery-3.4.1.min.js", "background.js"],
     "persistent": false
   },
   "page_action": {
       "default_popup": "popup.html"
   },
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.ca/"],
+      "js": ["jquery-3.4.1.min.js", "newtab.js"]
+    }
+  ],
   "manifest_version": 2
 }
