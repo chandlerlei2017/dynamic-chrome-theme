@@ -42,9 +42,6 @@ function set_image(url) {
     "background-size": "cover",
     "height": "100%",
   });
-  $( "#SIvCob" ).css({
-    "color": "white"
-  })
   console.log($( "body" ));
 }
 
