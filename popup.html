@@ -7,16 +7,22 @@
     <script type="text/javascript" src="bootstrap.min.js"></script>
   </head>
   <body class="p-3">
-    <form class="mb-3">
+    <form class="mb-3" id="urls-form">
+        <div class="form-group">
+          <label for="urls">Urls List</label>
+          <input id="urls" required="true" type="text" class="form-control"></input>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div id="display_urls"></div>
+    <form class="mb-3" id="search-form">
         <div class="form-group">
           <label for="search_params">Search Params</label>
           <input id="search_params" required="true" type="text" class="form-control"></input>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    <div id="display_params">
-
-    </div>
+    <div id="display_params"></div>
   </body>
   <script type="text/javascript" src="popup.js"></script>
 </html>
